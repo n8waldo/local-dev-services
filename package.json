@@ -1,0 +1,25 @@
+{
+  "name": "local-dev-services",
+  "version": "1.0.0",
+  "description": "A collection of common services to aid in local development",
+  "main": "index.js",
+  "scripts": {
+    "clean": "yarn clean:data && yarn clean:docker && yarn clean:dusting && rimraf node_modules/",
+    "clean:data": "yarn stop && rimraf data/",
+    "clean:docker": "yarn stop && docker-compose rm -f",
+    "clean:dusting": "rimraf *.log",
+    "start": "yarn stop && docker-compose up -d",
+    "stop": "docker-compose stop || true",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:n8waldo/local-dev-services.git"
+  },
+  "keywords": [],
+  "author": "Nate Clark <nate@waldophotos.com",
+  "license": "ISC",
+  "dependencies": {
+    "rimraf": "^2.5.4"
+  }
+}
